@@ -1,5 +1,5 @@
 import { atom } from "recoil"
-import type { MessageProps } from "../components/message"
+import type { MessageType } from "@/features/messages/types"
 
 type AlfredState = {
   isOpen: boolean
@@ -16,7 +16,7 @@ export const alfredState = atom<AlfredState>({
   }
 })
 
-export const messagesState = atom<MessageProps[]>({
+export const messagesState = atom<MessageType[]>({
   key: 'messagesStateAtom',
   default: []
 })
