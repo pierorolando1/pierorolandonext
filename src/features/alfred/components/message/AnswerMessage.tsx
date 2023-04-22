@@ -6,8 +6,9 @@ export const AnswerMessage = () => {
   const [state] = useRecoilState(lastMessageState)
 
   return <Message
-    type="system"
-    message={state}
+    styles="!opacity-60"
+    role="system"
+    content={state}
   />
 
 }

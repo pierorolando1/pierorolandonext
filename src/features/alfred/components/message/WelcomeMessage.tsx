@@ -1,35 +1,37 @@
-import { useSetRecoilState } from "recoil"
+import { useRecoilState } from "recoil"
 import { alfredState } from "../../atoms"
 import { useEffect, useState } from "react"
 import { ALFRED_IMAGE, WELCOME_MESSAGE } from "@/consts"
 
 
 export const WelcomeMessage = () => {
-  const setAlfredRecoilState = useSetRecoilState(alfredState)
-  const [message, setMessage] = useState("")
+  const [alfredRecoilState, setAlfredRecoilState] = useRecoilState(alfredState)
+  const [message, setMessage] = useState(alfredRecoilState.isFirstTime ? "" : WELCOME_MESSAGE)
 
   useEffect(() => {
 
-    setAlfredRecoilState(v => ({
-      ...v,
-      isAnswering: true
-    }))
+    if(alfredRecoilState.isFirstTime) {
+      setAlfredRecoilState(v => ({
+        ...v,
+        isAnswering: true
+      }))
 
-    const welcomeMessage = WELCOME_MESSAGE.split("")
-    let i = 0
+      const welcomeMessage = WELCOME_MESSAGE.split("")
+      let i = 0
 
-    const interval = setInterval(() => {
-      setMessage(welcomeMessage.slice(0, i).join(""))
-      i++
-      if (i === welcomeMessage.length) {
-        clearInterval(interval)
-          setAlfredRecoilState(v => ({
-            ...v,
-            isAnswering: false,
-            isFirstTime: false
-          }))
-      }
-    }, 20)
+      const interval = setInterval(() => {
+        setMessage(welcomeMessage.slice(0, i).join(""))
+        i++
+        if (i === welcomeMessage.length) {
+          clearInterval(interval)
+            setAlfredRecoilState(v => ({
+              ...v,
+              isAnswering: false,
+              isFirstTime: false
+            }))
+        }
+      }, 20) 
+    }
 
   }, [])
 

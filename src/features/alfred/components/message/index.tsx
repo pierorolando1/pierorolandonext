@@ -5,11 +5,13 @@ export { WelcomeMessage } from "./WelcomeMessage"
 export { AnswerMessage } from "./AnswerMessage"
 
 export type MessageProps = {
-  type: "system" | "user"
-  message?: string
+  role: "system" | "user" | "assistant"
+  content?: string
+  
+  styles?: string
 }
 
-export default ({ type, message = '' }: MessageProps) => {
+export default ({ role, content = '', styles = '' }: MessageProps) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -18,18 +20,19 @@ export default ({ type, message = '' }: MessageProps) => {
         type: "spring",
         stiffness: 260,
         damping: 26,
+        duration: 0.3
       }}
-      className="flex py-2.5"
+      className={"flex py-2.5 "+ styles}
     >
       {
-        type == "system" && <img className="w-10 h-10 rounded-full object-cover mr-3" src={ALFRED_IMAGE} />
+        role == "system" || role == "assistant" && <img className="w-10 h-10 rounded-full object-cover mr-3" src={ALFRED_IMAGE} />
       }
       <div
-        className={(type == 'user' ?
+        className={(role == 'user' ?
           "ml-auto bg-gray-700" :
           " shadow shadow-blue-700 bg-blue-700/90") + " max-w-xl rounded-xl px-4 py-2 w-fit text-gray-300"
         }>
-        <span>{ message }</span>
+        <span>{ content }</span>
       </div>
     </motion.div>
   )
