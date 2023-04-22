@@ -1,4 +1,3 @@
-import { ChatGPTAPI } from "chatgpt"
 import { atom } from "recoil"
 
 export const lastMessageState = atom<string>({ 
@@ -7,4 +6,4 @@ export const lastMessageState = atom<string>({
 })
 
 
-export const api = new ChatGPTAPI({ apiKey: process.env.OPENAI_API_KEY || "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" })
+export const api = process.env.OPENAI_API_KEY 
