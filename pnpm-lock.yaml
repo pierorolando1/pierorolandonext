@@ -13,6 +13,7 @@ specifiers:
   framer-motion: ^10.10.0
   next: 13.2.4
   next-contentlayer: ^0.3.1
+  next-sitemap: ^4.0.7
   openai: ^3.2.1
   openai-ext: ^1.2.2
   postcss: ^8.4.21
@@ -36,6 +37,7 @@ dependencies:
   framer-motion: 10.10.0_biqbaboplfbrettd7655fr4n2y
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
   next-contentlayer: 0.3.1_ld2jel3hspngo3u5lti2kgl2sq
+  next-sitemap: 4.0.7_next@13.2.4
   openai: 3.2.1
   openai-ext: 1.2.2
   react: 18.2.0
@@ -175,6 +177,10 @@ packages:
       oo-ascii-tree: 1.80.0
       ts-pattern: 4.2.2
       type-fest: 3.8.0
+    dev: false
+
+  /@corex/deepmerge/4.0.43:
+    resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
     dev: false
 
   /@effect-ts/core/0.60.5:
@@ -3543,6 +3549,19 @@ packages:
       - '@effect-ts/otel-node'
       - markdown-wasm
       - supports-color
+    dev: false
+
+  /next-sitemap/4.0.7_next@13.2.4:
+    resolution: {integrity: sha512-S2g5IwJeO0+ecmFq981fb+Mw9YWmntOuN/qTCxclSkUibOJ8qKIOye0vn6NEJ1S4tKhbY+MTYKgJpNdFZYxLoA==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      '@next/env': '*'
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': 4.0.43
+      minimist: 1.2.8
+      next: 13.2.4_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /next/13.2.4_biqbaboplfbrettd7655fr4n2y:

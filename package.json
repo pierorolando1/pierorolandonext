@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@types/node": "18.15.11",
@@ -19,6 +20,7 @@
     "framer-motion": "^10.10.0",
     "next": "13.2.4",
     "next-contentlayer": "^0.3.1",
+    "next-sitemap": "^4.0.7",
     "openai": "^3.2.1",
     "openai-ext": "^1.2.2",
     "react": "18.2.0",
