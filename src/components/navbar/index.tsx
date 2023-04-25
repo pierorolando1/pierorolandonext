@@ -15,8 +15,8 @@ const NavLink = ({
 
 const Navbar = () => {
   return (
-    <nav className='px-10'>
-      <div className='flex flex-col items-center justify-center h-full'>
+    <nav className='sm:px-10 px-5 py-8 sm:py-0'>
+      <div className='flex sm:flex-col flex-row items-center sm:justify-center justify-start h-full text-sm'>
         <NavLink href='/'>
           <svg className='w-5 mr-1' aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={1.8}
             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
