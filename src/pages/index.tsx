@@ -19,9 +19,6 @@ export default function Home() {
         <p className="text-gray-500">Software Engineer</p>
         
         <p className='text-sm py-2 pb-5 text-gray-300'>
-        Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-        Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-        Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
         </p>
 
         <div onClick={() => setAlfredState(val => ({...val, isOpen: true}))
