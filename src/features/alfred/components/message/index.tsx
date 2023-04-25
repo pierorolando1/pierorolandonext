@@ -22,7 +22,7 @@ export default ({ role, content = '', styles = '' }: MessageProps) => {
         damping: 26,
         duration: 0.3
       }}
-      className={"flex py-2.5 "+ styles}
+      className={"flex py-2.5 sm:px-1 px-2.5 "+ styles}
     >
       {
         role == "system" || role == "assistant" && <img className="w-10 h-10 rounded-full object-cover mr-3" src={ALFRED_IMAGE} />

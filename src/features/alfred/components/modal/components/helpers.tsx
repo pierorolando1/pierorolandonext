@@ -5,7 +5,7 @@ import { useState } from "react"
 import { scrollToBottom } from ".."
 import { OpenAIExt } from "openai-ext"
 import { lastMessageState } from "@/features/messages/atoms"
-import { PROMPT } from "@/consts"
+import { MAX_MESSAGES, PROMPT } from "@/consts"
 
 export const ExitButton = () => {
   const setAlfredState = useSetRecoilState(alfredState)
@@ -14,7 +14,7 @@ export const ExitButton = () => {
     <motion.button
       onClick={() => setAlfredState(state => ({ ...state, isOpen: false })) }
 
-      className="absolute top-0 right-0 m-4 p-4 hover:bg-gray-900/50 text-gray-300" 
+      className="absolute top-0 right-0 m-3 p-3 hover:bg-gray-900/50 text-gray-300" 
       initial={{ scale: 0 }}
       animate={{ rotate: 180, scale: 1 }}
       transition={{
@@ -54,7 +54,7 @@ export const AskAlfredInput = () => {
           messages: [
             { role: "system", content: PROMPT },
             ...messages,
-            { role: "user", content: e.currentTarget.value + "(responde de manera irónica en el idioma del mensaje)" }
+            { role: "user", content: e.currentTarget.value + "(responde de manera irónica en el idioma original del mensaje, si te preguntan en ingles, responde en ingles por ejemplo)" }
           ] //TODO:
       }, {
         apiKey,
@@ -63,6 +63,11 @@ export const AskAlfredInput = () => {
               setAlfredState(state => ({ ...state, isAnswering: false }))
               scrollToBottom()
               setLastMessage("")
+
+              if(messages.length > MAX_MESSAGES) {
+                setAlfredState(state => ({ ...state, isLimitReached: true }))
+              }
+
           },
           onContent(contentDraft, isFinal) {
             setLastMessage(contentDraft)
@@ -71,7 +76,10 @@ export const AskAlfredInput = () => {
             if (isFinal) {
               setMessages(state => [...state, { role: "assistant", content: contentDraft } ])
             }
-          }
+          },
+          onError(error, _status, _xhr) {
+            console.log(error)
+          },
         }
       })
     }
@@ -85,7 +93,7 @@ export const AskAlfredInput = () => {
         onKeyDown={handleSendMessage}
         type="text"
         placeholder="Ask anything about me"
-        className="placeholder-gray-600 !outline-none w-full h-[10vh] px-5 py-2 bg-transparent text-gray-400"
+        className="placeholder-gray-600 !outline-none w-full h-[14vh] px-5 py-2 bg-transparent text-gray-400"
       />
       {
         input.length > 0 && (
@@ -117,7 +125,7 @@ export const RelatedQuestions = () => {
           stiffness: 260,
           damping: 20
         }}
-        className="transition-all border-gray-800 rounded-full border-2 px-3 py-1 w-fit text-gray-500 hover:border-blue-700 cursor-pointer hover:text-gray-200"
+        className="text-xs transition-all border-gray-800 rounded-full border-2 px-3 py-1 w-fit text-gray-500 hover:border-blue-700 cursor-pointer hover:text-gray-200"
       >
         Está soltero?
       </motion.div>

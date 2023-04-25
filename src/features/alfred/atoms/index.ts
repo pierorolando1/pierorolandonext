@@ -5,6 +5,7 @@ type AlfredState = {
   isOpen: boolean
   isAnswering: boolean
   isFirstTime: boolean
+  isLimitReached: boolean
 }
 
 export const alfredState = atom<AlfredState>({ 
@@ -12,7 +13,8 @@ export const alfredState = atom<AlfredState>({
   default: {
     isOpen: false,
     isAnswering: true,
-    isFirstTime: true
+    isFirstTime: true,
+    isLimitReached: false
   }
 })
 
