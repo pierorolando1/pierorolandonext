@@ -23,7 +23,7 @@ modal-scroll {
   scrollbar-width: none !important;  /* Firefox */
 }
 
-::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 0 !important;
   display: none !important;
 }
