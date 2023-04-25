@@ -37,7 +37,7 @@ const PostLayout = ({ post }: {post: Post}) => {
             {format(parseISO(post.date), 'MMM d, yyyy')}
           </time>
           {
-              post.image ?? <Image src={post.image!} alt={post.title} className='w-full' />
+              post.image && <Image  src={post.image!} alt={post.title} className='w-full' />
           }
 
         </div>
