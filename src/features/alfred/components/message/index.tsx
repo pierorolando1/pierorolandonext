@@ -11,7 +11,7 @@ export type MessageProps = {
   styles?: string
 }
 
-export default ({ role, content = '', styles = '' }: MessageProps) => {
+export default function Message({ role, content = '', styles = '' }: MessageProps) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -25,7 +25,7 @@ export default ({ role, content = '', styles = '' }: MessageProps) => {
       className={"flex py-2.5 sm:px-1 px-2.5 "+ styles}
     >
       {
-        role == "system" || role == "assistant" && <img className="w-10 h-10 rounded-full object-cover mr-3" src={ALFRED_IMAGE} />
+        role == "system" || role == "assistant" && <img alt="alfred" className="w-10 h-10 rounded-full object-cover mr-3" src={ALFRED_IMAGE} />
       }
       <div
         className={(role == 'user' ?

@@ -3,6 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { Post, allPosts } from 'contentlayer/generated'
 import { GetStaticPropsContext } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import Image from 'next/image'
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post) => post.url)
@@ -35,8 +36,9 @@ const PostLayout = ({ post }: {post: Post}) => {
           <time dateTime={post.date} className="text-sm text-slate-600">
             {format(parseISO(post.date), 'MMM d, yyyy')}
           </time>
-
-          <img src={post.image} className='w-full' />
+          {
+              post.image ?? <Image src={post.image!} alt={post.title} className='w-full' />
+          }
 
         </div>
 
