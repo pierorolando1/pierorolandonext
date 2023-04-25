@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       <AlfredModal />
-      <main className='max-w-4xl mx-auto flex'>
+      <main className='max-w-4xl mx-auto flex h-screen'>
         <Navbar />
         <Component {...pageProps} />
       </main>

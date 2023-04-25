@@ -38,7 +38,7 @@ export const WelcomeMessage = () => {
   return (
     <div className="flex py-3">
       <img className="w-10 h-10 rounded-full object-cover mr-3" src={ALFRED_IMAGE} />
-      <div className="bg-blue-700/90 max-w-xl rounded-xl px-4 py-2 w-fit text-gray-300 shadow shadow-blue-700">
+      <div className="bg-cyan-700/90 max-w-xl rounded-xl px-4 py-2 w-fit text-gray-300 shadow shadow-blue-700">
         <span>{message}</span>
       </div>
     </div>
