@@ -30,7 +30,7 @@ export default ({ role, content = '', styles = '' }: MessageProps) => {
       <div
         className={(role == 'user' ?
           "ml-auto bg-gray-700" :
-          " shadow shadow-blue-700 bg-blue-700/90") + " max-w-xl rounded-xl px-4 py-2 w-fit text-gray-300"
+          " shadow shadow-cyan-700 bg-cyan-700/90") + " max-w-xl rounded-xl px-4 py-2 w-fit text-gray-300"
         }>
         <span>{ content }</span>
       </div>

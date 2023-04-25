@@ -10,7 +10,7 @@ type AlfredState = {
 export const alfredState = atom<AlfredState>({ 
   key: 'alfredStateAtom',
   default: {
-    isOpen: true,
+    isOpen: false,
     isAnswering: true,
     isFirstTime: true
   }
