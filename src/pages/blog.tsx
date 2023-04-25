@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const PostCard = (post: Post) => {
 
   return (
-    <div className="py-5">
+    <div className="py-5 px-4 sm:px-1.5">
       
       <h2 className="text-lg">
         <Link legacyBehavior href={post.url}>
@@ -33,7 +33,7 @@ const PostCard = (post: Post) => {
 export default function Blog({ posts }: {posts: Post[]}) {
 
   return (
-    <div>
+    <div className="h-screen overflow-scroll py-20 w-full">
     {
       posts.map((post,i) => (
         <PostCard key={i} {...post} />
