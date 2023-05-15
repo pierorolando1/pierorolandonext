@@ -10,6 +10,16 @@ const nextConfig = {
     config.experiments = { asyncWebAssembly: true, layers: true  };
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      }
+    ]
+  }
 }
 
 module.exports = withContentlayer(nextConfig)
