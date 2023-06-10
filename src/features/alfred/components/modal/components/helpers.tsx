@@ -54,7 +54,7 @@ export const AskAlfredInput = () => {
           messages: [
             { role: "system", content: PROMPT },
             ...messages,
-            { role: "user", content: e.currentTarget.value + "(responde de manera irónica en el idioma original del mensaje, si te preguntan en ingles, responde en ingles por ejemplo)" }
+            { role: "user", content: e.currentTarget.value + "(responde de manera irónica)" }
           ] //TODO:
       }, {
         apiKey,
@@ -93,11 +93,12 @@ export const AskAlfredInput = () => {
         onKeyDown={handleSendMessage}
         type="text"
         placeholder="Ask anything about me"
-        className="placeholder-gray-600 !outline-none w-full h-[14vh] px-5 py-2 bg-transparent text-gray-400"
+        className="placeholder-gray-600 !outline-none w-full h-[16vh] px-5 py-2 bg-transparent text-gray-400"
       />
       {
         input.length > 0 && (
         <motion.svg
+          onClick={() => handleSendMessage({ key: "Enter", currentTarget: { value: input } } as any)}
           initial={{ rotate: 80, scale: 0 }}
           animate={{ rotate: 0, scale: 1 }}
           transition={{

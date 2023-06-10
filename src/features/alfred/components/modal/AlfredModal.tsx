@@ -26,7 +26,7 @@ const AlfredModal = () => {
       <ExitButton />
 
       <section className="h-screen max-w-4xl mx-auto">
-        <div className={"messages flex flex-col h-[86vh] py-12 overflow-y-scroll modal-scroll " + (state.isAnswering && "!h-[100vh]")}>
+        <div className={"messages flex flex-col h-[84vh] py-12 overflow-y-scroll modal-scroll " + (state.isAnswering && "!h-[100vh]")}>
           <WelcomeMessage />
           {
             messages.map(({content, role}, i) => (
